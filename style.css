@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Josefin Sans";
+    font-size: 16px;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+/*Estrutura*/
+
+.estrutura{
+    max-width: 100%;
+    height: 100%;
+    background: url('images/bg-pattern-desktop.svg'), linear-gradient(135deg,hsl(0, 0%, 100%),hsl(0, 100%, 98%));
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px auto;
+    grid-template-areas:
+    "logo image-based"
+    "content image-based"
+    ;
+}
+
+/*Estrutura -> Mobile*/
+@media only screen and (max-width: 1024px){
+    .estrutura{
+        grid-template-columns: 100%;
+        grid-template-rows: auto 300px auto;
+        grid-template-areas:
+        "logo"
+        "image-based"
+        "content"
+        ;
+        justify-items: center;
+        align-items: center;
+    }
+}
+
+/*Logo*/
+
+.logo{
+    grid-area: logo;
+    align-self: center;
+    margin-left: 60px;
+}
+/*Logo -> Mobile*/
+
+@media only screen and (max-width: 1024px){
+.logo{
+    margin-top: 20px;
+    justify-self: center;
+}
+
+}
+
+/*content*/
+
+.content{
+    grid-area: content;
+    margin-left: 60px;
+}
+
+.content h1{
+    font-size: 68px;
+    line-height: 78px;
+    letter-spacing: .1em;
+    color: hsl(0, 6%, 24%);
+    font-weight: 400;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.content span{
+    font-size: 68px;
+    color: hsl(0, 36%, 70%);
+    font-weight: 300; 
+}
+
+.content p{
+    color:  hsl(0, 36%, 70%);
+    line-height: 26px;
+    max-width: 500px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    margin-right: 30px;
+}
+/*Form*/
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.input_email{
+    max-width: 450px;
+    flex:1;
+    padding: 15px 0 15px 20px;
+    border: 2px solid hsl(0, 93%, 68%);
+    border-radius: 20px;
+    outline: none;
+    color: hsl(0, 93%, 68%);
+}
+
+.button{
+    flex:1;
+    max-width: 100px;
+    border-radius: 20px;
+    background: linear-gradient(135deg,hsl(0, 36%, 70%),hsl(0, 93%, 68%));
+    cursor: pointer;
+    position: relative;
+    left: -50px;
+}
+
+.button img{
+    margin: 0 auto;
+}
+
+form .form_error{
+    flex: 2 1 800px;
+    color: hsl(0, 93%, 68%);
+    margin: 10px 0 0 10px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form_error.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.image_error{
+    width: 25px;
+    height: 25px;
+    position: relative;
+    left: -180px;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.image_error.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+/*Content e Form mobile*/
+
+@media only screen and (max-width: 1024px){
+    
+    .content h1, .content span{
+        font-size: 48px;
+    }
+}
+
+/*Image Based*/
+
+#image-based{
+    grid-area: image-based;
+    justify-self: end;
+    width: 610px;
+    max-width: 100%;
+    height: 800px;    
+    background: url("images/hero-desktop.jpg") no-repeat;
+    
+}
+
+@media only screen and (max-width: 1024px){
+    #image-based{
+        width: 375px;
+        height: 250px;
+        background: url("images/hero-mobile.jpg")no-repeat;
+        justify-self: center;
+    }
+}

@@ -16,9 +16,10 @@
             <p>Hello fellow shoppers! We're currently building our new fashion store.
             Add your email below to stay up-to-date with announcements and our launch deals.</p>
 
-            <form action="" method="POST" name="form" id="form">
+            <form action="" method="POST" id="form" onsubmit="return validar()">
 
-                <input class="input_email" name="input_email" type="email" placeholder="Email Adress" required>
+                <input class="input_email"type="text" id="email" placeholder="Email Adress">
+
                 <button class="button"type="submit"><img src="images/icon-arrow.svg" alt="icon-arrow"></button>
                 <img src="images/icon-error.svg" class="image_error">
                 <p class="form_error">Please provide a valid e-mail</p>

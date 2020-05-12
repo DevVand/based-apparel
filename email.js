@@ -1,21 +1,41 @@
-const input = document.querySelector(".input_email")
-const button = document.querySelector(".button")
-const image_error = document.querySelector(".image_error")
-const form_error = document.querySelector(".form_error")
+/*document.getElementById("form").addEventListener("submit",function(){
 
-button.addEventListener("click",function(){
+    document.querySelector(".input_email").setCustomValidity(" ")
 
-    if(input.value="" || input.value.indexOf('@')==-1 || input.value.indexOf('.')==-1){
-        image_error.classList.add("active")
-        form_error.classList.add("active")
+    const emailValue = document.querySelector(".input_email").value
 
-        form.querySelector("input").setCustomValidity(" ");
-        
+    if(emailValue == "" || !isEmail(emailValue)){
+        document.querySelector(".image_error").classList.add("active")
+        document.querySelector(".form_error").classList.add("active") 
+          alert("Error")  
     }
-
+  
     else{
-        image_error.classList.remove("active")
-        form_error.classList.remove("active")
-    }
+        document.querySelector(".image_error").classList.remove("active")
+        document.querySelector(".form_error").classList.remove("active")
 
-})
+    }
+})*/
+
+function isEmail(email) {
+	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+validar = () => {
+    document.querySelector(".input_email").setCustomValidity(" ")
+
+    const emailValue = document.querySelector(".input_email").value
+
+    if(emailValue == "" || !isEmail(emailValue)){
+        document.querySelector(".image_error").classList.add("active")
+        document.querySelector(".form_error").classList.add("active") 
+          alert("Error")  
+          return false
+    }
+  
+    else{
+        document.querySelector(".image_error").classList.remove("active")
+        document.querySelector(".form_error").classList.remove("active")
+        return true
+    }
+}
